@@ -1,7 +1,6 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
-import RxSwift
 import PlaygroundSupport
 
 //Make the playground work with RxSwift
@@ -32,11 +31,12 @@ func fetchProfile(username: String, onCompletion: @escaping (JSONDictionary) -> 
     
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
         
-        if let httpResponse = response as? HTTPURLResponse {
-            print(httpResponse.statusCode)
-            if httpResponse.statusCode < 200 && httpResponse.statusCode > 299 {
-                onError(Errors.wrongUrl(httpResponse.description))
-            }
+        guard let httpResponse = response as? HTTPURLResponse else {
+            fatalError("Unsupported protocol!!")
+        }
+        
+        if !(200..<300 ~= httpResponse.statusCode) {
+            onError(Errors.wrongUrl(httpResponse.description))
         }
         
         if let error = error {
@@ -75,11 +75,12 @@ func fetchImage(urlString: String, onCompletion: @escaping (UIImage) -> Void, on
     
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
         
-        if let httpResponse = response as? HTTPURLResponse {
-            print(httpResponse.statusCode)
-            if httpResponse.statusCode < 200 && httpResponse.statusCode > 299 {
-                onError(Errors.wrongUrl(httpResponse.description))
-            }
+        guard let httpResponse = response as? HTTPURLResponse else {
+            fatalError("Unsupported protocol!!")
+        }
+        
+        if !(200..<300 ~= httpResponse.statusCode) {
+            onError(Errors.wrongUrl(httpResponse.description))
         }
      
         if let error = error {

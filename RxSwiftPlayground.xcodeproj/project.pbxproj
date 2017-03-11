@@ -17,6 +17,7 @@
 		333581601E732660008D233D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		333581681E73296D008D233D /* RxSwiftExploration.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwiftExploration.playground; sourceTree = "<group>"; };
 		33CF57FB1E73F7A100C7C2F1 /* ClassicURLSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassicURLSession.playground; sourceTree = "<group>"; };
+		33CF58001E74103400C7C2F1 /* RxURLSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxURLSession.playground; sourceTree = "<group>"; };
 		91B486D89ED5732BFC4D2BF0 /* Pods-RxSwiftPlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlayground.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlayground/Pods-RxSwiftPlayground.debug.xcconfig"; sourceTree = "<group>"; };
 		AD8ECA5E160FF22FE0046D0D /* Pods-RxSwiftPlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlayground/Pods-RxSwiftPlayground.release.xcconfig"; sourceTree = "<group>"; };
 		F950C30C6D17046099383CD9 /* Pods_RxSwiftPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +69,7 @@
 				333581601E732660008D233D /* Info.plist */,
 				333581681E73296D008D233D /* RxSwiftExploration.playground */,
 				33CF57FB1E73F7A100C7C2F1 /* ClassicURLSession.playground */,
+				33CF58001E74103400C7C2F1 /* RxURLSession.playground */,
 			);
 			path = RxSwiftPlayground;
 			sourceTree = "<group>";
