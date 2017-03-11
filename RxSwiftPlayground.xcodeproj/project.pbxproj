@@ -16,6 +16,7 @@
 		3335815B1E732660008D233D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		333581601E732660008D233D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		333581681E73296D008D233D /* RxSwiftExploration.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwiftExploration.playground; sourceTree = "<group>"; };
+		33CF57FB1E73F7A100C7C2F1 /* ClassicURLSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassicURLSession.playground; sourceTree = "<group>"; };
 		91B486D89ED5732BFC4D2BF0 /* Pods-RxSwiftPlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlayground.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlayground/Pods-RxSwiftPlayground.debug.xcconfig"; sourceTree = "<group>"; };
 		AD8ECA5E160FF22FE0046D0D /* Pods-RxSwiftPlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlayground/Pods-RxSwiftPlayground.release.xcconfig"; sourceTree = "<group>"; };
 		F950C30C6D17046099383CD9 /* Pods_RxSwiftPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +67,7 @@
 				3335815B1E732660008D233D /* Assets.xcassets */,
 				333581601E732660008D233D /* Info.plist */,
 				333581681E73296D008D233D /* RxSwiftExploration.playground */,
+				33CF57FB1E73F7A100C7C2F1 /* ClassicURLSession.playground */,
 			);
 			path = RxSwiftPlayground;
 			sourceTree = "<group>";
@@ -114,6 +116,7 @@
 					333581501E73265F008D233D = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 42UB6JE5FK;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -304,11 +307,13 @@
 			baseConfigurationReference = 91B486D89ED5732BFC4D2BF0 /* Pods-RxSwiftPlayground.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 42UB6JE5FK;
 				INFOPLIST_FILE = RxSwiftPlayground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = and.erisco.RxSwiftPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -318,6 +323,7 @@
 			baseConfigurationReference = AD8ECA5E160FF22FE0046D0D /* Pods-RxSwiftPlayground.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 42UB6JE5FK;
 				INFOPLIST_FILE = RxSwiftPlayground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
