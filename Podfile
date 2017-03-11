@@ -7,5 +7,5 @@ target 'RxSwiftPlayground' do
 
   # Pods for RxSwiftPlayground
   pod 'RxSwift', '3.2.0'
-
+  pod 'RxCocoa', '3.2.0'
 end

@@ -1,10 +1,10 @@
-//: Playground - noun: a place where people can play
-
 import UIKit
 import RxSwift
+import RxCocoa
 import PlaygroundSupport
 
 //Make the playground work with RxSwift
+
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 //Make URLSession correctly working DISABLE CACHE
@@ -20,6 +20,7 @@ enum Errors: Error {
     case keyInJsonNotFound(String)
     
 }
+
 
 extension URLSession {
     
@@ -74,5 +75,67 @@ let webPageAsText = webpage.map { data in
 let _ = webPageAsText.subscribe(onNext: {
     print($0!)
 })
+
+
+//profile from github
+func fetchProfile(username: String) -> Observable<JSONDictionary> {
+    
+    let urlString = "https://api.github.com/users/\(username)"
+    
+    let profile = URLSession.shared.data(urlString: urlString)
+    
+    return profile.map({ data in
+        
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
+            throw Errors.invalidData(data,"Serialize json")
+        }
+        guard let profile = json as? JSONDictionary else {
+            throw Errors.invalidData(data,"Not a profile")
+        }
+        
+        return profile
+        
+    })
+    
+}
+
+//image from string url
+func fetchImage(urlString: String) -> Observable<UIImage> {
+    
+    let image = URLSession.shared.data(urlString: urlString)
+    
+    return image.map({ data in
+        return UIImage(data: data) ?? UIImage()
+    })
+    
+}
+
+//avatar image from github profile
+let observable = fetchProfile(username: "eriscoand").flatMap { profile in
+    
+    guard let urlString = profile["avatar_url"] as? String else {
+        throw Errors.keyInJsonNotFound("avatar_url")
+        return
+    }
+    
+    return fetchImage(urlString: urlString)
+}
+
+var imageView = UIImageView()
+
+observable.subscribe(onNext: { image in
+    imageView.image = image
+})
+
+//BINDING
+fetchImage(urlString: "https://avatars3.githubusercontent.com/u/20164590?v=3&s=460")
+    .observeOn(MainScheduler.instance)
+    .bindTo(imageView.rx.image)
+
+
+
+
+
+
 
 
