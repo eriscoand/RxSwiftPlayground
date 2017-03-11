@@ -66,3 +66,13 @@ let webpage = URLSession.shared.data(urlString: "http://www.ericrisco.com")
 let disposable = webpage.subscribe(onNext: { (data: Data) in
     let value = String(data: data, encoding: .ascii)
 })
+
+let webPageAsText = webpage.map { data in
+    return String(data: data, encoding: .ascii)
+}
+
+let _ = webPageAsText.subscribe(onNext: {
+    print($0!)
+})
+
+
